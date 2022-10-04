@@ -1,4 +1,3 @@
-from msilib.schema import ControlEvent
 import numpy as np
 from time import sleep
 

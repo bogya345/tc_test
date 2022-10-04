@@ -22,7 +22,7 @@ def func_redis():
 
     host, port, db = getConnection('databases', 'redis')
     
-    r = redis.Redis(host='localhost', port=6379, db=0)
+    r = redis.Redis(host=host, port=port, db=db)
     
     key = str(datetime.datetime.now())
     r.set(key, key)
