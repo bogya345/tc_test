@@ -2,6 +2,7 @@ from datetime import datetime
 import redis
 import json
 import datetime
+import os
 
 def getConnection(category, connectioName, filename='./connections.json'):
     j = json.load(open(filename))
@@ -34,7 +35,17 @@ def func_redis():
 if __name__ == '__main__':
     
     res = func_redis()
+    
+    
 
+    dir = os.path.join("./", "logs")
+    print(dir)
+
+    if os.path.exists(dir) or os.path.isdir(dir):
+        print(f'The {dir} is a directory')
+    else:
+        os.mkdir(dir)
+        
     with open('./logs/test2_res.txt', 'w+') as f:
         f.truncate()
         f.writelines(res)
