@@ -29,10 +29,18 @@ def func_redis():
 
     print(r.get(key))
 
-    return r.get(key)
+    return str(r.get(key))
 
 if __name__ == '__main__':
     
-    func_redis()
+    res = func_redis()
+
+    with open('./logs/test2_res.txt', 'w+') as f:
+        f.truncate()
+        f.writelines(res)
+        print('Successed')
+        pass
+
+    print('End test2')
 
     pass
